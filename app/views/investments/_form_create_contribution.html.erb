@@ -1,11 +1,15 @@
-<h1>Create contribution form partial start</h1>
-<%= simple_form_for [@investment, @contribution], html: { class: 'form-horizontal' } do |f| %>
-  <div class="form-group">
-    <%= f.input :ammount, input_html: { class: 'form-control' } %>
+<div class="container mt-4">
+  <div class="row justify-content-center">
+    <div class="col-md-6">
+      <%= simple_form_for [@investment, @contribution] do |f| %>
+        <div class="mb-3">
+          <%= f.input :amount, label: false, placeholder: "Enter contribution amount" %>
+        </div>
+        <%= f.hidden_field :investment_id, value: @investment.id %>
+        <div class="d-flex justify-content-end">
+          <%= f.button :submit, class: 'btn btn-primary btn-sm' %>
+        </div>
+      <% end %>
+    </div>
   </div>
-
-  <div class="form-actions">
-    <%= f.button :submit, class: 'btn btn-primary' %>
-  </div>
-<% end %>
-<h1>Create contribution form partial end</h1>
+</div>

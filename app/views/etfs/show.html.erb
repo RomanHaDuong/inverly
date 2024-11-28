@@ -1,6 +1,6 @@
 <div>
   <div class="simulate-button-container">
-    <%= link_to "Simulate Now", new_etf_investment_path(@etf), class: "btn btn-primary", style: "absolute; top: 20px; right: 20px;"  %>
+    <%= render 'button_create_investment' %>
       <% if current_user.favorite_etfs.include?(@etf) %>
         <%= button_to etf_favorite_path(@etf), method: :delete, class: 'btn btn-danger' do %>
         <i class="fas fa-heart"></i>
@@ -70,5 +70,3 @@
     <%= link_to "Simulate Now", etf_investments_path(@etf), class: "btn btn-primary" %>
   </div>
 </div>
-
-<%= render 'form_create_investment' %>
