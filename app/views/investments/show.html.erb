@@ -1,10 +1,11 @@
 
-<body>
+
+
 
   <h1 class="text-center my-4"><%= @investment.name %></h1>
   <div class="container row d-flex justify-content-center">
     <div class="card col-3 d-flex justify-content-center">
-      <div class="card-body">
+      <div class="group-card-all" >
         <h5 class="card-title">Investment Settings</h5>
         <div class="mb-3">
           <strong>Symbol:</strong> <%= @investment.etf.ticker_symbol %>
@@ -33,4 +34,282 @@
   ...
   </table>
   </div>
-</body>
+ <!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="globals.css" />
+    <link rel="stylesheet" href="styleguide.css" />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="group-card-risk">
+      <div class="overlap">
+        <div class="rectangle"></div>
+        <div class="div"></div>
+        <div class="rectangle-2"></div>
+        <div class="all-time">All-time<br />8%</div>
+        <div class="lower">Lower<br />6%</div>
+        <div class="higher">Higher<br />10%</div>
+        <div class="if-you-invest-in">
+          <p class="text-wrapper">If you invest in ...</p>
+          <div class="overlap-group"><div class="text-wrapper-2">#ETF name and symbol</div></div>
+        </div>
+        <div class="with-a-monthly">
+          <p class="p">with a monthly deposit of</p>
+          <div class="div-wrapper"><div class="text-wrapper-3">100</div></div>
+          <div class="text-wrapper-4">USD</div>
+        </div>
+        <p class="text-wrapper-5">With a estimated rate of return be:</p>
+        <p class="text-wrapper-6">using the historical rate of return of:</p>
+        <div class="rectangle-3"></div>
+      </div>
+    </div>
+  </body>
+</html>
+<style>
+.group-card-risk {
+  width: 551px;
+  height: 499px;
+}
+
+.group-card-risk .overlap {
+  position: relative;
+  height: 499px;
+}
+
+.group-card-risk .rectangle {
+  position: absolute;
+  width: 128px;
+  height: 109px;
+  top: 339px;
+  left: 56px;
+  background-color: #3795bd;
+  border-radius: 7px;
+  box-shadow: 0px 4px 4px #00000040;
+  opacity: 0.68;
+}
+
+.group-card-risk .div {
+  position: absolute;
+  width: 128px;
+  height: 109px;
+  top: 339px;
+  left: 216px;
+  background-color: #d9d9d9;
+  border-radius: 7px;
+  box-shadow: 0px 4px 4px #00000040;
+  opacity: 0.68;
+}
+
+.group-card-risk .rectangle-2 {
+  position: absolute;
+  width: 128px;
+  height: 109px;
+  top: 339px;
+  left: 372px;
+  background-color: #b47777;
+  border-radius: 7px;
+  box-shadow: 0px 4px 4px #00000040;
+  opacity: 0.68;
+}
+
+.group-card-risk .all-time {
+  position: absolute;
+  width: 91px;
+  top: 376px;
+  left: 236px;
+  text-shadow: 0px 2px 4.5px #00000040;
+  font-family: "Arial-NarrowBold", Helvetica;
+  font-weight: 700;
+  color: #00000080;
+  font-size: 20px;
+  text-align: center;
+  letter-spacing: 0;
+  line-height: normal;
+  white-space: nowrap;
+}
+
+.group-card-risk .lower {
+  position: absolute;
+  width: 91px;
+  top: 376px;
+  left: 73px;
+  text-shadow: 0px 2px 4.5px #00000040;
+  font-family: "Arial-NarrowBold", Helvetica;
+  font-weight: 700;
+  color: #00000080;
+  font-size: 20px;
+  text-align: center;
+  letter-spacing: 0;
+  line-height: normal;
+  white-space: nowrap;
+}
+
+.group-card-risk .higher {
+  position: absolute;
+  width: 91px;
+  top: 376px;
+  left: 391px;
+  text-shadow: 0px 2px 4.5px #00000040;
+  font-family: "Arial-NarrowBold", Helvetica;
+  font-weight: 700;
+  color: #00000080;
+  font-size: 20px;
+  text-align: center;
+  letter-spacing: 0;
+  line-height: normal;
+  white-space: nowrap;
+}
+
+.group-card-risk .if-you-invest-in {
+  position: absolute;
+  width: 424px;
+  height: 29px;
+  top: 65px;
+  left: 80px;
+}
+
+.group-card-risk .text-wrapper {
+  position: absolute;
+  width: 136px;
+  top: 7px;
+  left: 0;
+  text-shadow: 0px 2px 4.5px #00000040;
+  font-family: "Arial-NarrowBold", Helvetica;
+  font-weight: 700;
+  color: #00000080;
+  font-size: 18px;
+  letter-spacing: 0;
+  line-height: normal;
+}
+
+.group-card-risk .overlap-group {
+  position: absolute;
+  width: 284px;
+  height: 29px;
+  top: 0;
+  left: 136px;
+  background-color: #d9d9d9;
+  border-radius: 7px;
+  box-shadow: 0px 4px 4px #00000040;
+}
+
+.group-card-risk .text-wrapper-2 {
+  position: absolute;
+  width: 234px;
+  top: 7px;
+  left: 20px;
+  font-family: "Arial-NarrowBold", Helvetica;
+  font-weight: 700;
+  color: #000000;
+  font-size: 18px;
+  letter-spacing: 0;
+  line-height: normal;
+  white-space: nowrap;
+}
+
+.group-card-risk .with-a-monthly {
+  position: absolute;
+  width: 389px;
+  height: 30px;
+  top: 154px;
+  left: 73px;
+}
+
+.group-card-risk .p {
+  position: absolute;
+  width: 208px;
+  top: 0;
+  left: 0;
+  text-shadow: 0px 2px 4.5px #00000040;
+  font-family: "Arial-NarrowBold", Helvetica;
+  font-weight: 700;
+  color: #00000080;
+  font-size: 20px;
+  letter-spacing: 0;
+  line-height: normal;
+}
+
+.group-card-risk .div-wrapper {
+  position: absolute;
+  width: 97px;
+  height: 30px;
+  top: 0;
+  left: 221px;
+  background-color: #00cccc;
+  border-radius: 8px;
+  box-shadow: 0px 4px 4px #00000040;
+}
+
+.group-card-risk .text-wrapper-3 {
+  position: absolute;
+  width: 61px;
+  top: 3px;
+  left: 15px;
+  font-family: "Arial-NarrowBold", Helvetica;
+  font-weight: 700;
+  color: #000000;
+  font-size: 20px;
+  text-align: center;
+  letter-spacing: 0;
+  line-height: normal;
+  white-space: nowrap;
+}
+
+.group-card-risk .text-wrapper-4 {
+  position: absolute;
+  width: 65px;
+  height: 30px;
+  top: 0;
+  left: 318px;
+  text-shadow: 0px 2px 4.5px #00000040;
+  font-family: "Arial-NarrowBold", Helvetica;
+  font-weight: 700;
+  color: #00000080;
+  font-size: 20px;
+  text-align: center;
+  letter-spacing: 0;
+  line-height: normal;
+}
+
+.group-card-risk .text-wrapper-5 {
+  position: absolute;
+  width: 406px;
+  top: 239px;
+  left: 33px;
+  text-shadow: 0px 2px 4.5px #00000040;
+  font-family: "Arial-NarrowBold", Helvetica;
+  font-weight: 700;
+  color: #00000080;
+  font-size: 24px;
+  text-align: center;
+  letter-spacing: 0;
+  line-height: normal;
+}
+
+.group-card-risk .text-wrapper-6 {
+  position: absolute;
+  width: 364px;
+  top: 289px;
+  left: 104px;
+  text-shadow: 0px 2px 4.5px #00000040;
+  font-family: "Arial-NarrowBold", Helvetica;
+  font-weight: 700;
+  color: #00000080;
+  font-size: 24px;
+  letter-spacing: 0;
+  line-height: normal;
+}
+
+.group-card-risk .rectangle-3 {
+  position: absolute;
+  width: 551px;
+  height: 499px;
+  top: 0;
+  left: 0;
+  background-color: #d9d9d921;
+  box-shadow: 0px 11px 4.4px #00000040;
+  opacity: 0.2;
+}
+</style>
