@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_11_28_072323) do
+ActiveRecord::Schema[7.1].define(version: 2024_11_25_064700) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -34,7 +34,6 @@ ActiveRecord::Schema[7.1].define(version: 2024_11_28_072323) do
     t.float "average_return"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.date "inception_date"
   end
 
   create_table "favorites", force: :cascade do |t|
@@ -44,16 +43,6 @@ ActiveRecord::Schema[7.1].define(version: 2024_11_28_072323) do
     t.datetime "updated_at", null: false
     t.index ["etf_id"], name: "index_favorites_on_etf_id"
     t.index ["user_id"], name: "index_favorites_on_user_id"
-  end
-
-  create_table "holdings", force: :cascade do |t|
-    t.string "symbol"
-    t.string "description"
-    t.float "weight"
-    t.bigint "etf_id", null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["etf_id"], name: "index_holdings_on_etf_id"
   end
 
   create_table "investments", force: :cascade do |t|
@@ -66,14 +55,6 @@ ActiveRecord::Schema[7.1].define(version: 2024_11_28_072323) do
     t.datetime "updated_at", null: false
     t.index ["etf_id"], name: "index_investments_on_etf_id"
     t.index ["user_id"], name: "index_investments_on_user_id"
-  end
-
-  create_table "monthly_times", force: :cascade do |t|
-    t.jsonb "date_close_price"
-    t.bigint "etf_id", null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["etf_id"], name: "index_monthly_times_on_etf_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -92,8 +73,6 @@ ActiveRecord::Schema[7.1].define(version: 2024_11_28_072323) do
   add_foreign_key "contributions", "investments"
   add_foreign_key "favorites", "etfs"
   add_foreign_key "favorites", "users"
-  add_foreign_key "holdings", "etfs"
   add_foreign_key "investments", "etfs"
   add_foreign_key "investments", "users"
-  add_foreign_key "monthly_times", "etfs"
 end

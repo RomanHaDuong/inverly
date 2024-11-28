@@ -30,10 +30,10 @@
           <p><%= @etf.description %></p>
         </div>
         <div class="mb-3">
-          <strong>Previous Close Price:</strong> $<%= @etf.current_price %>
+          <strong>Current Price:</strong> $<%= @etf.current_price %>
         </div>
         <div class="mb-3">
-          <strong>All-time Average Rate of Return:</strong> <%= @etf.average_return %>%
+          <strong>Average Return:</strong> <%= @etf.average_return %>%
         </div>
       </div>
     </div>
@@ -55,11 +55,11 @@
         </tr>
       </thead>
       <tbody>
-        <% @top_holdings.each do |holding| %>
+        <% 10.times do |row| %>
           <tr>
-            <td><%= holding.symbol %></td>
-            <td><%= holding.description %></td>
-            <td><%= holding.weight %></td>
+            <td><%= @etf.ticker_symbol %></td>
+            <td><%= @etf.name %></td>
+            <td><%= @etf.average_return %></td>
           </tr>
         <% end %>
       </tbody>
@@ -67,6 +67,6 @@
   </div>
 
   <div style="text-align: center">
-    <%= link_to "Simulate Now", etf_investments_path(@etf), class: "btn btn-primary" %>
+    <%= render 'button_create_investment' %>
   </div>
 </div>
