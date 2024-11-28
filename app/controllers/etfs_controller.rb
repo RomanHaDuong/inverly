@@ -16,6 +16,19 @@ class EtfsController < ApplicationController
     @investment.etf_id = @etf
     @investment.user_id = current_user
     @etfs = Etf.all.where(etf_id: @etf.id)
+
+    @monthly_series = @etf.monthly_times
+    # dates = monthly_series.keys
+    # parsed_monthly_series = {}
+    # dates.each do |date|
+    #   parsed_monthly_series[date] = monthly_series[date]['4. close']
+    # end
+    @top_holdings = @etf.holdings
+
+    # parsed_holdings = {}
+    # top_holdings.each do |holding|
+    #   parsed_holdings[holding] = holdings[holding]['symbol']['description']['weight']
+    # end
   end
 
   private
