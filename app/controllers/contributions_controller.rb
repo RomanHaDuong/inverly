@@ -19,6 +19,7 @@ class ContributionsController < ApplicationController
     @contribution.investment_id = @investment.id
     @old_contribution = Contribution.where(investment_id: @investment.id).first
     @old_contribution.destroy if @old_contribution
+    @contribution.date = Date.today
     if @contribution.save
       redirect_to investment_path(@investment), notice: 'Contribution created successfully.'
     else

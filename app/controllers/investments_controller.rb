@@ -52,6 +52,15 @@ class InvestmentsController < ApplicationController
     @future_values_for_graph = future_value(100, @average_rate_of_return, number_of_months_for_graph)
     @contributions = @investment.contributions
     @contribution = Contribution.new
+
+    @contribution.investment_id = @investment
+    counts = @investment.contributions.pluck(:date, :amount)
+    sum = 0
+    @cumul_count = counts.map do | date, count|
+     sum = sum + count
+     [date, sum]
+    end
+    @contributions = Contribution.all.where(investment: @investment)
   end
 
   # Adam's method for the graph display
