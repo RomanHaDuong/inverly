@@ -35,4 +35,8 @@ class Etf < ApplicationRecord
     inception_year = inception_date&.year
     (((((ending_value.fdiv(beginning_value)) ** (1.0 / (2024 - inception_year))) - 1.0) * 100) + 4).round(3)
   end
+
+  def average_return
+    average_rate_of_return
+  end
 end

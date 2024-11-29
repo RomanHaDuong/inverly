@@ -115,7 +115,7 @@ def create_holdings(etf)
   else
     puts "API exceeded for #{etf.ticker_symbol}"
   end
-
+end
 
 etf = Etf.where(name: "SPDR S&P 500 ETF Trust", ticker_symbol: "SPY", description: "Tracks the performance of the S&P 500 Index, covering 500 of the largest U.S. companies.", category: "Large-Cap Blend").first_or_create!
 etf.update(inception_date: "1993-01-22")

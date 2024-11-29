@@ -43,7 +43,9 @@ class InvestmentsController < ApplicationController
     beginning_value = @etf.earliest_monthly_time_price
     ending_value = @etf.latest_monthly_time_price
     inception_year = @etf.inception_date&.year
-    @average_rate_of_return = average_rate_of_return(beginning_value, ending_value, inception_year)
+    # OLD METHOD
+    # @average_rate_of_return = average_rate_of_return(beginning_value, ending_value, inception_year)
+    @average_rate_of_return = @etf.average_rate_of_return
     @conservative_rate_of_return = conservative_rate_of_return(@average_rate_of_return)
     @optimistic_rate_of_return = optimistic_rate_of_return(@average_rate_of_return)
     number_of_months_for_table = [36, 60 , 84, 120, 180, 240, 360]
@@ -83,6 +85,7 @@ class InvestmentsController < ApplicationController
   #   ((ending_value.fdiv(beginning_value)) ** (1.0 / (2024 - inception_year))) - 1
   # end
 
+  # WARNING: This method should not be used in the controller. It should be used in the model.
   def average_rate_of_return(beginning_value, ending_value, inception_year)
     ((((ending_value.fdiv(beginning_value)) ** (1.0 / (2024 - inception_year))) - 1.0) * 100).round(3)
   end
