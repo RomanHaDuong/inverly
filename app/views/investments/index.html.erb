@@ -10,4 +10,14 @@
       <%= link_to investment.name, investment_path(investment), class: "text-decoration-none" %>
     </li>
   <% end %>
+  <br>
+</ul>
+<ul class="list-group mx-5">
+  <% @investments.each do |investment| %>
+    <li class="list-group-item d-flex justify-content-between"> <%= link_to investment.name, investment_path(investment), class: "text-decoration-none" %>
+      <div class="btn-group"> <button type="button" class="btn btn-primary btn-sm">Edit</button>
+        <button type="button" class="btn btn-danger btn-sm text-white">Delete</button>
+      </div>
+    </li>
+  <% end %>
 </ul>
