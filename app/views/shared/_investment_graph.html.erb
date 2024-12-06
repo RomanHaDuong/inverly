@@ -1,5 +1,8 @@
-
+<% if @trigger_display_investment_button=="false"%>
   <div class="card col justify-content-center">
+  <% else %>
+    <div class="col justify-content-center">
+    <% end %>
     <%= line_chart [
           { name: 'Investment and returns', data: @cumul_count, color: 'blue' },
           { name: 'Amount invested', data: @cumul_amounts, color: 'red' }

@@ -16,6 +16,7 @@
 /tmp/*
 !/log/.keep
 !/tmp/.keep
+/migrate/etf_data.json
 
 # Ignore pidfiles, but keep the directory.
 /tmp/pids/*

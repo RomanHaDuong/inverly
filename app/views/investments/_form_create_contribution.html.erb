@@ -1,28 +1,27 @@
 <div class="container mt-4 d-flex align-items-center" style="background-color: #2596be; border-radius: 10px; width: 30%;">
   <div class="row justify-content-center">
     <div class="d-flex-container">
-      <h2 class="text-left text-white mb-3">
+      <h2 class="text-left text-black mb-3">
         <% if @investment.contributions.last.nil? %>
-        How much would you like to contribute per month?</h2>
-        <p class="text-white text center">Enter a monthly contribution below:</p>
-        <% else %>
+          How much would you like to contribute per month?</h2>
+        <p class="text-black text center">Enter a monthly contribution below:</p>
+      <% else %>
         Change your contribution here</h2>
-        <p class="text-white text center">Enter a new monthly contribution below:</p>
-        <% end %>
-        <%= simple_form_for [@investment, @contribution] do |f| %>
-          <div class="mb-3">
-            <div class="input-group justify-content-between" style="border-radius: 10px;">
-              <span class="input-group-text" style="border-radius: 10px 0 0 10px;">$</span>
-              <input type="text" name="contribution[amount]" class="form-control" placeholder="Enter an amount" aria-label="Recipient's username" aria-describedby="button-addon2" id="contribution-amount">
-              <button class="btn btn-primary btn-sm" type="submit" id="button-addon2" style="border-radius: 0 10px 10px 0;">Contribute</button>
-            </div>
-            <%= f.hidden_field :investment_id, value: @investment.id %>
-          </div>
-        <% end %>
-    </div>
+      <p class="text-black text center">Enter a new monthly contribution below:</p>
+    <% end %>
+    <%= simple_form_for [@investment, @contribution] do |f| %>
+      <div class="mb-3">
+        <div class="input-group justify-content-between" style="border-radius: 10px;">
+          <span class="input-group-text" style="border-radius: 10px 0 0 10px;">$</span>
+          <input type="text" name="contribution[amount]" class="form-control" placeholder="Enter an amount" aria-label="Recipient's username" aria-describedby="button-addon2" id="contribution-amount">
+          <button class="btn btn-primary btn-sm" type="submit" id="button-addon2" style="border-radius: 0 10px 10px 0;">Contribute</button>
+        </div>
+        <%= f.hidden_field :investment_id, value: @investment.id %>
+      </div>
+    <% end %>
   </div>
 </div>
-
+</div>
 <script>
   document.querySelector('form').addEventListener('submit', function(event) {
     const amountField = document.getElementById('contribution-amount');
