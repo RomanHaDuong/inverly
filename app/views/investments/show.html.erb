@@ -2,20 +2,20 @@
 <div class="container row d-flex justify-content-center" style="background-color: #2596be; border-radius: 10px;">
   <h1 class="text-center text-white my-4"><%= "#{@investment.name} | #{@investment.etf.name}" %></h1>
 </div>
-
 <div>
   <% if @investment.contributions.last.nil? %>
-      <%= render 'form_create_contribution' %>
+    <%= render 'form_create_contribution' %>
   <% else %>
-    <%= render 'investment_info' %>
     <div class="d-flex justify-content-between">
       <%= render 'form_create_contribution' %>
       <%= render 'display_investment_details' %>
     </div>
-    <%= render 'shared/render_holdings' %>
+    <div class="row">
+      <%= render 'investment_info' %>
+      <%= render 'shared/render_holdings' %>
+    </div>
   <% end %>
 </div>
-
 <style>
   .edit-button .btn {
     display: inline-block;
