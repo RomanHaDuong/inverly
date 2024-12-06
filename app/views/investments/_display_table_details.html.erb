@@ -1,62 +1,57 @@
 <br>
 <h2 class="text-center text-white mb-4">Returns Estimate</h2>
-
 <% if @contributions.any? %>
   <% three_years = @contributions.first(@contributions.count / 3) %>
 <% end %>
 <% if @contributions.any? %>
   <% year_six = @contributions.first((@contributions.count * 2 / 3.0).to_i) %>
 <% end %>
-
-
-  <table class="table table-bordered table-hover mt-4">
-    <thead class="thead-light">
-      <tr>
-        <th></th>
-        <th>3 Years</th>
-        <th>6 Years</th>
-        <th>9 Years</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td>Optimistic - 120% of expected returns</td>
-        <% if @optimistic_contributions.any? %>
-          <% optimistic_three_years = @optimistic_contributions.first(@optimistic_contributions.count / 3) %>
-          <% optimistic_year_six = @optimistic_contributions.first((@optimistic_contributions.count * 2 / 3.0).to_i) %>
-          <td><%= "$#{number_with_delimiter((optimistic_three_years.last.total).to_i)}" %></td>
-          <td><%= "$#{number_with_delimiter((optimistic_year_six.last.total).to_i)}" %></td>
-          <td><%= "$#{number_with_delimiter((@optimistic_contributions.last.total).to_i)}" %></td>
-        <% else %>
-          <td colspan="3" class="text-danger">No optimistic contributions found</td>
-        <% end %>
-      </tr>
-      <tr>
-        <td>Expected</td>
-        <% if @contributions.any? %>
-          <td><%= "$#{number_with_delimiter((three_years.last.total).to_i)}" %></td>
-          <td><%= "$#{number_with_delimiter((year_six.last.total).to_i)}" %></td>
-          <td><%= "$#{number_with_delimiter((@contributions.last.total).to_i)}" %></td>
-        <% else %>
-          <td colspan="3" class="text-danger">No expected contributions found</td>
-        <% end %>
-      </tr>
-      <tr>
-        <td>Pessimistic - 80% of expected returns</td>
-        <% if @pessimistic_contributions.any? %>
-          <% pessimistic_three_years = @pessimistic_contributions.first(@pessimistic_contributions.count / 3) %>
-          <% pessimistic_year_six = @pessimistic_contributions.first((@pessimistic_contributions.count * 2 / 3.0).to_i) %>
-          <td><%= "$#{number_with_delimiter((pessimistic_three_years.last.total).to_i)}" %></td>
-          <td><%= "$#{number_with_delimiter((pessimistic_year_six.last.total).to_i)}" %></td>
-          <td><%= "$#{number_with_delimiter((@pessimistic_contributions.last.total).to_i)}" %></td>
-        <% else %>
-          <td colspan="3" class="text-danger">No pessimistic contributions found</td>
-        <% end %>
-      </tr>
-    </tbody>
-  </table>
-</div>
-
+<table class="table table-bordered table-hover mt-4">
+  <thead class="thead-light">
+    <tr>
+      <th></th>
+      <th>3 Years</th>
+      <th>6 Years</th>
+      <th>9 Years</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Optimistic - 120% of expected returns</td>
+      <% if @optimistic_contributions.any? %>
+        <% optimistic_three_years = @optimistic_contributions.first(@optimistic_contributions.count / 3) %>
+        <% optimistic_year_six = @optimistic_contributions.first((@optimistic_contributions.count * 2 / 3.0).to_i) %>
+        <td><%= "$#{number_with_delimiter((optimistic_three_years.last.total).to_i)}" %></td>
+        <td><%= "$#{number_with_delimiter((optimistic_year_six.last.total).to_i)}" %></td>
+        <td><%= "$#{number_with_delimiter((@optimistic_contributions.last.total).to_i)}" %></td>
+      <% else %>
+        <td colspan="3" class="text-danger">No optimistic contributions found</td>
+      <% end %>
+    </tr>
+    <tr>
+      <td>Expected</td>
+      <% if @contributions.any? %>
+        <td><%= "$#{number_with_delimiter((three_years.last.total).to_i)}" %></td>
+        <td><%= "$#{number_with_delimiter((year_six.last.total).to_i)}" %></td>
+        <td><%= "$#{number_with_delimiter((@contributions.last.total).to_i)}" %></td>
+      <% else %>
+        <td colspan="3" class="text-danger">No expected contributions found</td>
+      <% end %>
+    </tr>
+    <tr>
+      <td>Pessimistic - 80% of expected returns</td>
+      <% if @pessimistic_contributions.any? %>
+        <% pessimistic_three_years = @pessimistic_contributions.first(@pessimistic_contributions.count / 3) %>
+        <% pessimistic_year_six = @pessimistic_contributions.first((@pessimistic_contributions.count * 2 / 3.0).to_i) %>
+        <td><%= "$#{number_with_delimiter((pessimistic_three_years.last.total).to_i)}" %></td>
+        <td><%= "$#{number_with_delimiter((pessimistic_year_six.last.total).to_i)}" %></td>
+        <td><%= "$#{number_with_delimiter((@pessimistic_contributions.last.total).to_i)}" %></td>
+      <% else %>
+        <td colspan="3" class="text-danger">No pessimistic contributions found</td>
+      <% end %>
+    </tr>
+  </tbody>
+</table>
 <style>
   .forecast-table {
     width: 100%;

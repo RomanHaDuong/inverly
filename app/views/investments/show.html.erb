@@ -6,8 +6,12 @@
     <div>
       <%= render 'shared/chart_invest_info_contribution' %>
     </div>
-    <%= render 'display_investment_details' %>
-    <%= render 'shared/render_holdings' %>
+    <div class="container-fluid mt-3 container-killer">
+      <div class="row ">
+        <span class="col-6"><%= render 'display_investment_details' %></span>
+        <span class="col-6"><%= render 'shared/render_holdings' %></span>
+      </div>
+    </div>
   <% end %>
 </div>
 <style>
@@ -29,7 +33,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100%; /* Optional: Adjust as needed */
+  /* height: 100%; Optional: Adjust as needed */
   }
 
   .edit-button .btn:hover {
@@ -45,5 +49,11 @@
 
   .edit-button .interactive-brokers-link {
     margin: 10px 0;
+  }
+  .container-killer {
+    background-color: unset;
+    box-shadow: unset;
+    width: 100%;
+    padding: 10px;
   }
 </style>
